@@ -15,7 +15,7 @@ class Shop:
     def get_products(self):
         file = open(self.__file_name, 'r', encoding='utf-8')
         include = file.read()
-        file.closed
+        file.close()
         return include
 
     def add(self, *products):
@@ -53,7 +53,7 @@ class Shop:
                         break
                 if flag:
                     file.write(f'{product.__str__()}\n')
-            file.closed
+            file.close()
 
 
 s1 = Shop()
