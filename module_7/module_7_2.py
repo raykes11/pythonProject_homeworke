@@ -9,7 +9,7 @@ def custom_write(file_name, *args):
             file = open(file_name, 'r', encoding='utf-8')
             all_lines = file.readlines()
             lines = len(all_lines)
-            file.close
+            file.close()
             strings_positions[(lines, byte_)] = string
     return strings_positions
 
