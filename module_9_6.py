@@ -3,7 +3,7 @@ def all_variants(text):
     while iter_ < len(text):
         for i in range(len(text) - iter_):
             text_ = list(text)
-            yield f'{''.join(text_[i:i + iter_ + 1])}'
+            yield f"{''.join(text_[i:i + iter_ + 1])}"
         iter_ += 1
 
 
