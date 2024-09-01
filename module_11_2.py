@@ -24,12 +24,8 @@ def introspection_info(obj):
     dict_['attributes'] = [list(a.keys()) for a in get_ if isinstance(a, dict) and len(a) > 0]
     dict_['methods'] = dir(obj)
     dict_['module'] = __name__
-    print(dict_['attributes'])
-    print(dict_)
+    return dict_
 
 
-a = {"we": 34, 'ewgfe': 35466778}
-
-# introspection_info((45,0))
-introspection_info(Azaza)
-introspection_info(Object_(254045, 2, 2, 2, ))
+number_info = introspection_info(42)
+print(number_info)
