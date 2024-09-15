@@ -1,3 +1,4 @@
+from requests import TooManyRedirects
 class Object_:
     def __init__(self, name, age, *time):
         self.name = name
@@ -17,15 +18,13 @@ def Azaza(aaaaaaaaaaaaaa):
 
 def introspection_info(obj):
     dict_ = {}
-    # print(obj.__name__)
-    type_ = type(obj)
-    dict_['type'] = str(type_)[8:-2]
-    get_ = [getattr(obj, a) for a in dir(obj)]
-    dict_['attributes'] = [list(a.keys()) for a in get_ if isinstance(a, dict) and len(a) > 0]
-    dict_['methods'] = dir(obj)
-    dict_['module'] = __name__
+    dict_['type']  = obj.__class__.__name__
+    dict_['attributes'] = [attributes for attributes in dir(obj) if callable(attributes)]
+    dict_['methods'] = [methods for methods in dir(obj) if not callable(methods)]
+    dict_['module'] = obj.__class__.__module__
     return dict_
 
 
 number_info = introspection_info(42)
 print(number_info)
+
